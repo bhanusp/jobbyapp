@@ -75,6 +75,7 @@ class JobItemDetails extends Component {
 
     const jwtToken = Cookies.get('jwt_token')
     const {activeEmploy, activeSalary, searchInput} = this.state
+
     const employmentType = activeEmploy.join(',')
 
     const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${activeSalary}&search=${searchInput}`
@@ -124,10 +125,7 @@ class JobItemDetails extends Component {
     this.setState({isChecked: !isChecked})
     console.log('checked')
     if (isChecked === true) {
-      this.setState(
-        {activeEmploy: employmentTypesList.employmentTypeId},
-        this.getJobList,
-      )
+      this.setState({activeEmploy: employmentTypesList.employmentTypeId})
     }
   }
 
